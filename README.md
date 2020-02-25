@@ -1,4 +1,6 @@
 # data_extract
+test2
+test
 
 ## This directory houses the functions that utilize ``pymatgen`` to get information from the Materials Project website for battery materials.
 
