@@ -5,7 +5,7 @@ import pymatgen.apps.battery.insertion_battery as ins
 import pandas as pd
 
 from pymatgen import MPRester
-if __name__ == "__main__":
+#if __name__ == "__main__":
     MAPI_KEY = 'T6m6yGppfgtTxpT1'
 mpr = MPRester(MAPI_KEY)
 
