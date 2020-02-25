@@ -6,4 +6,4 @@
 `get_bat_dat()`
 Extracts all data from materials project for materials with ID = battery.
 
-For another contributor
+For another
