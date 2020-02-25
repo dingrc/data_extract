@@ -6,7 +6,7 @@
 `get_bat_dat()`
 Extracts all data from materials project for materials with ID = battery.
 
-
 Mitch branch
 
-For another contributor
+
+For another
