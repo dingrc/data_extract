@@ -9,16 +9,6 @@ import pandas as pd
 from pymatgen import MPRester
 
 
-def get_battery_data(self, formula_or_batt_id):
-    """Returns batteries from a batt id or formula.
-
-    Examples:
-        get_battery("mp-300585433")
-        get_battery("LiFePO4")
-    """
-    return mpr._make_request('/battery/%s' % formula_or_batt_id)
-
-
 def get_bat_dat_final(mapi_key):
     """
     Returns a dataframe of all battery materials and their properties
@@ -30,11 +20,21 @@ def get_bat_dat_final(mapi_key):
     # MAPI_KEY is the API key obtained from the materials project
     mpr = MPRester(mapi_key)
 
+    def get_battery_data(self, formula_or_batt_id):
+        """
+        Returns batteries from a batt id or formula.
+
+        Examples:
+            get_battery("mp-300585433")
+            get_battery("LiFePO4")
+        """
+        return mpr._make_request('/battery/%s' % formula_or_batt_id)
+
+    # adding get_battery_data function to MPRester
+    MPRester.get_battery_data = get_battery_data
+
     # import the crytsal system table from repository
     crystal = pd.read_csv('crystal_system_table.csv')
-
-    #adding get_battery_data function to MPRester
-    MPRester.get_battery_data = get_battery_data
 
     # making a list of all the battery IDs
     all_bat_ids_list = (mpr._make_request('/battery/all_ids'))
