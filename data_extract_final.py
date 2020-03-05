@@ -9,6 +9,16 @@ import pandas as pd
 from pymatgen import MPRester
 
 
+def get_battery_data(self, formula_or_batt_id):
+    """Returns batteries from a batt id or formula.
+
+    Examples:
+        get_battery("mp-300585433")
+        get_battery("LiFePO4")
+    """
+    return mpr._make_request('/battery/%s' % formula_or_batt_id)
+
+
 def get_bat_dat_final(mapi_key):
     """
     Returns a dataframe of all battery materials and their properties
