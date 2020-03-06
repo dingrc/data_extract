@@ -121,6 +121,7 @@ def get_bat_dat():
             # select features we need in training our model
             train_set=clean_battery_df[['Working Ion','Crystal Lattice','Spacegroup','Gravimetric Capacity (units)','Volumetric Capacity','Max Delta Volume']]
             # concat the element attributes which represent the property of charge/dis electrode in our features
+            train_set.reset_index(drop=False, inplace=True)
             train_set=pd.concat(objs=[train_set,element_attributes],axis=1)
             # make a .csv file to our working directory.
             train_set.to_csv(path_or_buf='./TrainingData.csv')
