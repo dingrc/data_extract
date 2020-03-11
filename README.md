@@ -1,4 +1,8 @@
-branch=new branch# data_extract
+
+# data_extract
+test2
+test
+origin/lester_branch
 
 ## This directory houses the functions that utilize ``pymatgen`` to get information from the Materials Project website for battery materials.
 
