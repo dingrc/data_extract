@@ -50,6 +50,10 @@ pca = PCA(n_components=165)
 newdata=pca.fit_transform(pss)
 
 newdf = pd.DataFrame(newdata)
+outputs = np.array(df.loc[:,['Gravimetric Capacity (units)', 'Volumetric Capacity', 'Max Delta Volume']])
+newdf['Gravimetric Capacity (units)'] = ss.fit_transform(outputs)[:,[0]]
+newdf['Volumetric Capacity'] = ss.fit_transform(outputs)[:,[1]]
+newdf['Max Delta Volume'] = ss.fit_transform(outputs)[:,[2]]
 newdf.to_csv('NEWTrainingData_StandardScaler.csv')
 
 #Use MinMaxScaler
@@ -62,4 +66,8 @@ pca2 = PCA(n_components=115)
 newdata2=pca2.fit_transform(pms)
 
 newdf2 = pd.DataFrame(newdata2)
+outputs = np.array(df.loc[:,['Gravimetric Capacity (units)', 'Volumetric Capacity', 'Max Delta Volume']])
+newdf2['Gravimetric Capacity (units)'] = ms.fit_transform(outputs)[:,[0]]
+newdf2['Volumetric Capacity'] = ms.fit_transform(outputs)[:,[1]]
+newdf2['Max Delta Volume'] = ms.fit_transform(outputs)[:,[2]]
 newdf2.to_csv('NEWTrainingData_MinMaxScaler.csv')
